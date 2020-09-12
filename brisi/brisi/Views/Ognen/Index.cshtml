@@ -1,0 +1,72 @@
+﻿@*@model Order
+
+
+    <h1>@ViewData["Title"]</h1>
+    <div style="border: groove">
+
+        <h3>User who order: @Model.User.FirstName</h3>
+        <p>
+            Name: @Html.DisplayFor(n => n.User.FirstName)
+            <br />
+            Last name: @Model.User.LastName
+        </p>
+        <br />
+        Address: @Html.LabelFor(a => a.User.Address)
+    </div>
+
+    <div style="border: groove">
+        <h3>Pizza name: @Model.Pizza</h3>
+        <p>Price: @Html.DisplayFor(p=>p.Price) $</p>
+    </div>
+
+    <a asp-controller="Ognen" asp-action="Details">Details</a>*@
+
+
+@*//@model List<BuddyVM>*@
+
+@*<<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mail)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("ДЕТАЛИ", "BuddyDetails", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+@model IEnumerable<brisi.Models.Domain.Buddy>
+
+<div class="buddies">
+    @foreach (var item in Model)
+    {
+        <partial name="_CardBuddies" model="item" />
+    }
+</div>

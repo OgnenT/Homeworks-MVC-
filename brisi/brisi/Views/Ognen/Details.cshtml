@@ -1,0 +1,29 @@
+﻿@model OrderDetailsVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+@{
+    string checkDelivery = "Canceled";
+    if (Model.isDelivered)
+    {
+        checkDelivery = "Your pizza is on its way";
+    }
+}
+
+
+<h2>Details for: @ViewBag.DetailsOrderName</h2>
+<ul>
+    <li>Pizza name: @Model.Pizza</li>
+    <li>Price: @Model.Price $</li>
+    <li>Address: @Model.Address</li>
+    <li>Phone: @Model.Contact</li>
+    <li>Delivery: @checkDelivery</li>
+</ul>
+<a asp-controller="Ognen" asp-action="GoBack">Go Back</a>
+<br />
+
+Date: @DateTime.Now
+
+
+
